@@ -1,3 +1,20 @@
 {
-  "extends": "@react-native/typescript-config/tsconfig.json"
+  "extends": "@react-native/typescript-config/tsconfig.json",
+  "compilerOptions": {
+    "baseUrl": "./src",
+    "paths": {
+      "@components/*": [
+        "components/*"
+      ],
+      "@screens/*": [
+        "screens/*"
+      ],
+      "@utils/*": [
+        "utils/*"
+      ]
+    },
+    "strict": true,
+    "noEmit": true,
+    "forceConsistentCasingInFileNames": true
+  }
 }

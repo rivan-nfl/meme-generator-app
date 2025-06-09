@@ -1,97 +1,128 @@
-This is a new [**React Native**](https://reactnative.dev) project, bootstrapped using [`@react-native-community/cli`](https://github.com/react-native-community/cli).
+## 🖼️ Meme Generator App
 
-# Getting Started
+A cross-platform mobile application built using **React Native** (TypeScript) that allows users to generate, edit, and export memes with custom images and text. The app supports gesture-based interactions, including drag, pinch-to-zoom, and double-tap duplication.
 
-> **Note**: Make sure you have completed the [Set Up Your Environment](https://reactnative.dev/docs/set-up-your-environment) guide before proceeding.
+---
 
-## Step 1: Start Metro
+### 📦 Tech Stack
 
-First, you will need to run **Metro**, the JavaScript build tool for React Native.
+* **React Native** with TypeScript
+* **Zustand** for global canvas state management
+* **React Navigation** for screen transitions
+* **React Native Gesture Handler** + **Reanimated 2** for advanced gestures
+* **React Native View Shot** to capture canvas
+* **react-native-fs** for saving files to device storage
 
-To start the Metro dev server, run the following command from the root of your React Native project:
+---
 
-```sh
-# Using npm
-npm start
+### 🚀 Features
 
-# OR using Yarn
-yarn start
+| Feature                | Description                                                                     |
+| ---------------------- | ------------------------------------------------------------------------------- |
+| 🖼️ Template Selection | Choose from predefined meme templates.                                          |
+| ✍️ Add/Edit Text       | Add text, drag to reposition, long press to edit.                               |
+| 🎨 Change Text Color   | Tap to cycle through available colors.                                          |
+| ✌️ Duplicate           | Double-tap to duplicate any item (text/image).                                  |
+| 📦 Add Image           | Insert draggable image blocks into canvas.                                      |
+| 🗑️ Remove             | Remove the last selected item.                                                  |
+| 🔄 Reset Canvas        | Clear all content and start fresh.                                              |
+| 🔍 Zoom & Pan          | Use pinch to zoom and pan across canvas.                                        |
+| 💾 Export              | Save the meme as an image to Downloads folder (Android) or Photo Library (iOS). |
+
+---
+
+### 📁 Project Structure
+
+```
+/src
+  /components
+    - CanvasControls.tsx
+    - DraggableText.tsx
+    - DraggableImage.tsx
+    - ExportButton.tsx
+    - MemeCanvas.tsx
+    - MemeTemplateSelector.tsx
+    - ResetButton.tsx
+  /hooks
+    - useCanvasStore.ts
+  /constants
+    - colors.ts
+    - spacing.ts
+  /screens
+    - HomeScreen.tsx
+    - CanvasScreen.tsx
+App.tsx
 ```
 
-## Step 2: Build and run your app
+---
 
-With Metro running, open a new terminal window/pane from the root of your React Native project, and use one of the following commands to build and run your Android or iOS app:
+### 🛠 Setup
 
-### Android
+1. **Clone the repo**
 
-```sh
-# Using npm
-npm run android
+   ```bash
+   git clone https://github.com/yourusername/meme-generator-app.git
+   cd meme-generator-app
+   ```
 
-# OR using Yarn
-yarn android
+2. **Install dependencies**
+
+   ```bash
+   npm install
+   ```
+
+3. **Run the project**
+
+   ```bash
+   npx react-native run-android
+   # or
+   npx react-native run-ios
+   ```
+
+4. **Link native modules**
+
+   ```bash
+   npx pod-install
+   ```
+
+---
+
+### ⚙️ Permissions
+
+**Android:**
+
+Ensure these permissions are set in `AndroidManifest.xml`:
+
+```xml
+<uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+<uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+<uses-permission android:name="android.permission.MANAGE_EXTERNAL_STORAGE" />
 ```
 
-### iOS
+**iOS:**
 
-For iOS, remember to install CocoaPods dependencies (this only needs to be run on first clone or after updating native deps).
+Add this to `Info.plist`:
 
-The first time you create a new project, run the Ruby bundler to install CocoaPods itself:
-
-```sh
-bundle install
+```xml
+<key>NSPhotoLibraryAddUsageDescription</key>
+<string>We need access to your photo library to save memes.</string>
 ```
 
-Then, and every time you update your native dependencies, run:
+---
 
-```sh
-bundle exec pod install
-```
+### 🧪 Testing Guide
 
-For more information, please visit [CocoaPods Getting Started guide](https://guides.cocoapods.org/using/getting-started.html).
+* Tap **Start Creating Meme** on HomeScreen to navigate.
+* Select a template, add/edit text or image.
+* Use gestures to move, zoom, or duplicate.
+* Use Reset or Export to finish your meme creation.
 
-```sh
-# Using npm
-npm run ios
+---
 
-# OR using Yarn
-yarn ios
-```
+### 📌 TODO / Improvements
 
-If everything is set up correctly, you should see your new app running in the Android Emulator, iOS Simulator, or your connected device.
-
-This is one way to run your app — you can also build it directly from Android Studio or Xcode.
-
-## Step 3: Modify your app
-
-Now that you have successfully run the app, let's make changes!
-
-Open `App.tsx` in your text editor of choice and make some changes. When you save, your app will automatically update and reflect these changes — this is powered by [Fast Refresh](https://reactnative.dev/docs/fast-refresh).
-
-When you want to forcefully reload, for example to reset the state of your app, you can perform a full reload:
-
-- **Android**: Press the <kbd>R</kbd> key twice or select **"Reload"** from the **Dev Menu**, accessed via <kbd>Ctrl</kbd> + <kbd>M</kbd> (Windows/Linux) or <kbd>Cmd ⌘</kbd> + <kbd>M</kbd> (macOS).
-- **iOS**: Press <kbd>R</kbd> in iOS Simulator.
-
-## Congratulations! :tada:
-
-You've successfully run and modified your React Native App. :partying_face:
-
-### Now what?
-
-- If you want to add this new React Native code to an existing application, check out the [Integration guide](https://reactnative.dev/docs/integration-with-existing-apps).
-- If you're curious to learn more about React Native, check out the [docs](https://reactnative.dev/docs/getting-started).
-
-# Troubleshooting
-
-If you're having issues getting the above steps to work, see the [Troubleshooting](https://reactnative.dev/docs/troubleshooting) page.
-
-# Learn More
-
-To learn more about React Native, take a look at the following resources:
-
-- [React Native Website](https://reactnative.dev) - learn more about React Native.
-- [Getting Started](https://reactnative.dev/docs/environment-setup) - an **overview** of React Native and how setup your environment.
-- [Learn the Basics](https://reactnative.dev/docs/getting-started) - a **guided tour** of the React Native **basics**.
-- [Blog](https://reactnative.dev/blog) - read the latest official React Native **Blog** posts.
-- [`@facebook/react-native`](https://github.com/facebook/react-native) - the Open Source; GitHub **repository** for React Native.
+* [ ] Snap-to-grid feature
+* [ ] Support for custom image upload from gallery
+* [ ] Animated transitions
+* [ ] Undo/Redo support
+* [ ] Share directly to social media
