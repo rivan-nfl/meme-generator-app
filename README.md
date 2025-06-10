@@ -2,6 +2,8 @@
 
 A cross-platform mobile application built using **React Native** (TypeScript) that allows users to generate, edit, and export memes with custom images and text. The app supports gesture-based interactions, including drag, pinch-to-zoom, and double-tap duplication.
 
+You can find the .apk file [here](https://drive.google.com/file/d/1mRDTrcNXFE6eNwPBcowxh1GZugEOwyZm/view?usp=sharing)
+
 ---
 
 ### 📦 Tech Stack
