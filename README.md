@@ -1,4 +1,4 @@
-## 🖼️ Meme Generator App
+## 🖼️ Meme Generator App!
 
 A cross-platform mobile application built using **React Native** (TypeScript) that allows users to generate, edit, and export memes with custom images and text. The app supports gesture-based interactions, including drag, pinch-to-zoom, and double-tap duplication.
 
